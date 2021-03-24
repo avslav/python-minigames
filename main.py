@@ -1,6 +1,3 @@
-# Interactive Minigame Menu & Games"
-
-
 import random
 
 
@@ -39,9 +36,47 @@ def guess():
     else:
         print(f"Wrong! The correct number was {num}!")
 
+def rps():
+
+    choice = input("\nChoose rock (r), paper (p) or scissors (s)!")
+
+    ai = ["Rock", "Paper", "Scissors"]
+
+    aiChoice = random.choice(ai)
+
+    if choice == "r" and aiChoice == "Rock":
+        print("\nIt's a tie! We both chose rock!\n")
+    
+    elif choice == "p" and aiChoice == "Rock":
+        print("\nRock! You win.\n")
+
+    elif choice == "s" and aiChoice == "Rock":
+        print("\nRock! You lose!\n")
+    
+    elif choice == "p" and aiChoice == "Paper":
+        print("\nTie! We both chose paper!\n")
+
+    elif choice == "r" and aiChoice == "Paper":
+        print("\nPaper! You lose.\n")
+    
+    elif choice == "s" and aiChoice == "Paper":
+        print("\nPaper! You win.\n")
+    
+    elif choice == "r" and aiChoice == "Scissors":
+        print("\nScissors! You win.\n")
+    
+    elif choice == "p" and aiChoice == "Scissors":
+        print("\nScissors! You lose.\n")
+    
+    elif choice == "s" and aiChoice == "Scissors":
+        print("\nScissors! It's a tie!\n")
+    
+    else:
+        print("Hmm... Something went wrong!")
+
 def minigame_menu():
     
-    choice = int(input("What game would you like to play?\n1. Coinflip\n2. Dice\n3. Magic 8ball\n4. Number Guessing game"))
+    choice = int(input("What game would you like to play?\n1. Coinflip\n2. Dice\n3. Magic 8ball\n4. Number Guessing game\n5. Rock, Paper, Scissors"))
     
     if choice == 1:
         coinflip()
@@ -54,6 +89,9 @@ def minigame_menu():
     
     elif choice == 4:
         guess()
+    
+    elif choice == 5:
+        rps()
 
     else:
         print("Invalid number provided!")
