@@ -8,11 +8,15 @@ def coinflip():
         print("You Got: Heads!")
     else:
         print("You Got: Tails!")
+    
+    playAgain()
 
 def dice():
     num = random.randint(1,6)
 
     print(f"You Rolled: {num}!")
+    
+    playAgain()
 
 def eightball():
 
@@ -23,6 +27,8 @@ def eightball():
     response = random.choice(responses)
 
     print(response)
+    
+    playAgain()
 
 def guess():
     
@@ -35,6 +41,8 @@ def guess():
     
     else:
         print(f"Wrong! The correct number was {num}!")
+    
+    playAgain()
 
 def rps():
 
@@ -73,10 +81,24 @@ def rps():
     
     else:
         print("Hmm... Something went wrong!")
+    
+    playAgain()
+
+
+def playAgain():
+    choice = input("\nWould you to play another game or exit? Type 0 to exit, and 1 to keep going!")
+
+    if choice == "1":
+        minigame_menu()
+    
+    if choice == "0":
+        return print("\nThanks for playing the minigames!\n")
+
+
 
 def minigame_menu():
     
-    choice = int(input("What game would you like to play?\n1. Coinflip\n2. Dice\n3. Magic 8ball\n4. Number Guessing game\n5. Rock, Paper, Scissors"))
+    choice = int(input("What game would you like to play?\n1. Coinflip\n2. Dice\n3. Magic 8ball\n4. Number Guessing game\n5. Rock, Paper, Scissors\n6. Exit"))
     
     if choice == 1:
         coinflip()
@@ -92,8 +114,11 @@ def minigame_menu():
     
     elif choice == 5:
         rps()
+    
+    elif choice == 6:
+        return
 
     else:
         print("Invalid number provided!")
 
-minigame_menu();
+minigame_menu()
